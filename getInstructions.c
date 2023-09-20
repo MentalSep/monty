@@ -14,6 +14,8 @@ char **getInstructions(char *line)
 	if (!tokens)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		free_stack(gData.stack);
+		fclose(gData.file);
 		exit(EXIT_FAILURE);
 	}
 	tmp = strtok(line, " \n\t");

@@ -7,12 +7,14 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new = NULL, *tmp = NULL;
+	stack_t *new = NULL;
 	int n;
 
 	if (!gData.opBuffer[1] || isdigit(*gData.opBuffer[1]) == 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		free_stack(*stack);
+		fclose(gData.file);
 		exit(EXIT_FAILURE);
 	}
 	n = atoi(gData.opBuffer[1]);
@@ -20,21 +22,19 @@ void push(stack_t **stack, unsigned int line_number)
 	if (!new)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		free_stack(*stack);
+		fclose(gData.file);
 		exit(EXIT_FAILURE);
 	}
 	new->n = n;
 	new->next = NULL;
 	new->prev = NULL;
-	if (!*stack)
+	if (*stack)
 	{
-		*stack = new;
-		return;
+		new->next = *stack;
+		(*stack)->prev = new;
 	}
-	tmp = *stack;
-	while (tmp->next)
-		tmp = tmp->next;
-	tmp->next = new;
-	new->prev = tmp;
+	*stack = new;
 }
 
 /**
