@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
 			{
 				fprintf(stderr, "L%d: unknown instruction %s\n",
 					gData.line_number, gData.opBuffer[0]);
-				free_stack(gData.stack);
+				free(gData.opBuffer), free(line), free_stack(gData.stack);
 				fclose(gData.file);
 				exit(EXIT_FAILURE);
 			}
