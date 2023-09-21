@@ -7,7 +7,6 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new = NULL;
 	int n;
 
 	if (!gData.opBuffer[1] || checkNumber(gData.opBuffer[1]))
@@ -18,23 +17,10 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	n = atoi(gData.opBuffer[1]);
-	new = malloc(sizeof(stack_t));
-	if (!new)
-	{
-		fprintf(stderr, "Error: malloc failed\n");
-		free_stack(*stack);
-		fclose(gData.file);
-		exit(EXIT_FAILURE);
-	}
-	new->n = n;
-	new->next = NULL;
-	new->prev = NULL;
-	if (*stack)
-	{
-		new->next = *stack;
-		(*stack)->prev = new;
-	}
-	*stack = new;
+	if (gData.mode == STACKMODE)
+		add_dnodeint(stack, n);
+	else if (gData.mode == QUEUEMODE)
+		add_dnodeint_end(stack, n);
 }
 
 /**

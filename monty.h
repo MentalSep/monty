@@ -7,6 +7,9 @@
 #include <ctype.h>
 #include <string.h>
 
+#define STACKMODE 1
+#define QUEUEMODE 2
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -52,6 +55,7 @@ typedef struct global_s
 	char **opBuffer;
 	stack_t *stack;
 	FILE *file;
+	int mode;
 } global_t;
 
 global_t gData;
@@ -61,6 +65,7 @@ void (*validOpCode(char *opCode)) (stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *stack);
 int checkNumber(char *str);
 stack_t *add_dnodeint_end(stack_t **head, const int n);
+stack_t *add_dnodeint(stack_t **head, const int n);
 
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
