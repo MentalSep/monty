@@ -10,7 +10,7 @@ char **getInstructions(char *line)
 	char **tokens = NULL, *tmp = NULL;
 	int i;
 
-	tokens = malloc(sizeof(char *) * 3);
+	tokens = malloc(sizeof(char *) * 50);
 	if (!tokens)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
@@ -27,8 +27,6 @@ char **getInstructions(char *line)
 	tokens[i] = NULL;
 	return (tokens);
 }
-
-#include "monty.h"
 
 /**
  * validOpCode - get the opcode
