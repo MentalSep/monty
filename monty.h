@@ -58,10 +58,11 @@ global_t gData;
 
 char **getInstructions(char *line);
 void (*validOpCode(char *opCode)) (stack_t **stack, unsigned int line_number);
+void free_stack(stack_t *stack);
+int checkNumber(char *str);
 
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
-void free_stack(stack_t *stack);
-int checkNumber(char *str);
+void pint(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTECARLO_H */
