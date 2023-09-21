@@ -60,6 +60,7 @@ char **getInstructions(char *line);
 void (*validOpCode(char *opCode)) (stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *stack);
 int checkNumber(char *str);
+stack_t *add_dnodeint_end(stack_t **head, const int n);
 
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
@@ -73,5 +74,7 @@ void mul(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
+void rotl(stack_t **stack, unsigned int line_number);
+void rotr(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */
