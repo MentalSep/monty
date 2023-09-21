@@ -26,7 +26,7 @@ char **getInstructions(char *line)
 	}
 	for (j = 0; j < i; j++)
 	{
-		if (strcmp(tokens[j], "nop") == 0)
+		if (strcmp(tokens[j], "nop") == 0 || tokens[j][0] == '#')
 		{
 			tokens[j] = NULL;
 			break;
@@ -54,6 +54,8 @@ void (*validOpCode(char *opCode)) (stack_t **stack, unsigned int line_number)
 		{"div", div_},
 		{"mul", mul},
 		{"mod", mod},
+		{"pchar", pchar},
+		{"pstr", pstr},
 		{NULL, NULL}
 	};
 	int i;
