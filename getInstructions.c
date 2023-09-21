@@ -8,7 +8,7 @@
 char **getInstructions(char *line)
 {
 	char **tokens = NULL, *tmp = NULL;
-	int i;
+	int i, j;
 
 	tokens = malloc(sizeof(char *) * 50);
 	if (!tokens)
@@ -23,6 +23,14 @@ char **getInstructions(char *line)
 	{
 		tokens[i] = tmp;
 		tmp = strtok(NULL, " \n\t");
+	}
+	for (j = 0; j < i; j++)
+	{
+		if (strcmp(tokens[j], "nop") == 0)
+		{
+			tokens[j] = NULL;
+			break;
+		}
 	}
 	tokens[i] = NULL;
 	return (tokens);
