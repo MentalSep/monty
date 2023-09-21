@@ -39,6 +39,9 @@ void (*validOpCode(char *opCode)) (stack_t **stack, unsigned int line_number)
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
+		{"pop", pop},
+		{"swap", swap},
+		{"add", add},
 		{NULL, NULL}
 	};
 	int i;

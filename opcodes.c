@@ -73,3 +73,51 @@ void pint(stack_t **stack, unsigned int line_number)
 	}
 	printf("%d\n", (*stack)->n);
 }
+
+/**
+ * pop - remove the top element of the stack
+ * @stack: pointer to the stack
+ * @line_number: line number
+ */
+void pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp = NULL;
+
+	if (!*stack)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		free_stack(*stack);
+		fclose(gData.file);
+		exit(EXIT_FAILURE);
+	}
+	tmp = *stack;
+	if (tmp->next)
+	{
+		*stack = tmp->next;
+		tmp->next->prev = NULL;
+	}
+	else
+		*stack = NULL;
+	free(tmp);
+}
+
+/**
+ * swap - swap the top two elements of the stack
+ * @stack: pointer to the stack
+ * @line_number: line number
+ */
+void swap(stack_t **stack, unsigned int line_number)
+{
+	int tmp;
+
+	if (!*stack || !(*stack)->next)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		free_stack(*stack);
+		fclose(gData.file);
+		exit(EXIT_FAILURE);
+	}
+	tmp = (*stack)->n;
+	(*stack)->n = (*stack)->next->n;
+	(*stack)->next->n = tmp;
+}

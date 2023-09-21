@@ -1,5 +1,5 @@
-#ifndef MONTECARLO_H
-#define MONTECARLO_H
+#ifndef MONTY_H
+#define MONTY_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -48,10 +48,10 @@ typedef struct instruction_s
  */
 typedef struct global_s
 {
-	char **opBuffer;
-	FILE *file;
 	int line_number;
+	char **opBuffer;
 	stack_t *stack;
+	FILE *file;
 } global_t;
 
 global_t gData;
@@ -64,5 +64,8 @@ int checkNumber(char *str);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
 
-#endif /* MONTECARLO_H */
+#endif /* MONTY_H */
