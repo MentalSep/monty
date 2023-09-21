@@ -1,5 +1,5 @@
 +++++ +++++         Set Cell #0 to 10 and use it as index for the loop
-[>+++++ +++<-]      Add 8 to Cell #1 until Cell #1 is 0
+[>+++++ +++<-]      Add 8 to Cell #1 until Cell #0 is 0
 >+++.               add 3 to Cell #1 and print character S '83'
 <+++                add 3 to Cell #0 and use it as index for next loop
 [>+++++ <-]         add 5 to Cell #1 until Cell #0 is 0
