@@ -10,7 +10,7 @@ void push(stack_t **stack, unsigned int line_number)
 	stack_t *new = NULL;
 	int n;
 
-	if (!gData.opBuffer[1] || isdigit(*gData.opBuffer[1]) == 0)
+	if (!gData.opBuffer[1] || checkNumber(gData.opBuffer[1]))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free_stack(*stack);

@@ -50,3 +50,22 @@ void (*validOpCode(char *opCode)) (stack_t **stack, unsigned int line_number)
 
 	return (NULL);
 }
+
+/**
+ * checkNumber - check if the string is a number
+ * @str: string to check
+ * Return: 0 on success
+ */
+int checkNumber(char *str)
+{
+	int i;
+
+	for (i = 0; str[i]; i++)
+	{
+		if (str[i] == '-' && i == 0)
+			continue;
+		if (isdigit(str[i]) == 0)
+			return (1);
+	}
+	return (0);
+}
