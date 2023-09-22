@@ -4,7 +4,7 @@
 <---<---                   decrement both Cell #0 and Cell #1 by 3 to get the int value of the input
 [>[>+>+<<-]>>[<<+>>-]<<<-] multuplying loop
 >>>>>+++++ +++++>+<<<<     add 10 to Cell #5 and 1 to Cell #6 and use Cell #5 for next loop
-[->>+>-[>>]>[<+++++ +++++<----------<+>>>>>]<<<<<<]
+[->>+>-[>>]>[<+++++ +++++<----------<+>>>>>]<<<<<<] seperate the digits of the product
 +++++ ++++                 add 9 to Cell #2 and use as index for next loop
 [>>+++++ <<-]              add 5 to Cell #4 until Cell #2 is 0
 +++++ ++++                 add 9 to Cell #2 and use as index for next loop
